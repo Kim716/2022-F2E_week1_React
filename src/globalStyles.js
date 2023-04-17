@@ -42,3 +42,17 @@ export const GlobalStyles = createGlobalStyle`
     --pink-2: #E335FF;
   }
 `;
+
+const breakpoint = {
+  xs: '320px',
+  sm: '576px',
+  md: '768px',
+  lg: '1320px',
+};
+
+export const device = {
+  xs: `min-width: ${breakpoint.xs}`,
+  sm: `min-width: ${breakpoint.sm}`,
+  md: `min-width: ${breakpoint.md}`,
+  lg: `min-width: ${breakpoint.lg}`,
+};
