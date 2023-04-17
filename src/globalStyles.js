@@ -40,6 +40,7 @@ export const GlobalStyles = createGlobalStyle`
     --blue-2: #79EAEE;
     --pink-1: #F9D1FF;
     --pink-2: #E335FF;
+    font-size: 16px;
   }
 `;
 
