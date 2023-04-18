@@ -57,6 +57,15 @@ const StyledDiv = styled.div`
     }
   }
 
+  @media screen and (${device.ipad}) {
+    h1 {
+      top: 68%;
+      left: 30%;
+
+      font-size: 2.5rem;
+    }
+  }
+
   @media screen and (${device.lg}) {
     .background1_md {
       display: none;
@@ -68,7 +77,7 @@ const StyledDiv = styled.div`
 
     h1 {
       top: 62%;
-      left: 36%;
+      left: 38%;
 
       font-size: 3rem;
     }

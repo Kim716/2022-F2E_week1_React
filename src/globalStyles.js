@@ -33,7 +33,7 @@ export const GlobalStyles = createGlobalStyle`
     --purple-1: #B79CFF;
     --purple-2: #895CDD;
     --purple-3: #6029F5;
-    --yellow-1: #FFE79E;
+    --yellow-1: #FDF7E8;
     --yellow-2: #DFB73F;
     --yellow-3: #F8CC46;
     --blue-1: #6DD2D6;
@@ -48,12 +48,14 @@ const breakpoint = {
   xs: '320px',
   sm: '576px',
   md: '768px',
-  lg: '1320px',
+  ipad: '1024px',
+  lg: '1420px',
 };
 
 export const device = {
   xs: `min-width: ${breakpoint.xs}`,
   sm: `min-width: ${breakpoint.sm}`,
   md: `min-width: ${breakpoint.md}`,
+  ipad: `min-width: ${breakpoint.ipad}`,
   lg: `min-width: ${breakpoint.lg}`,
 };
