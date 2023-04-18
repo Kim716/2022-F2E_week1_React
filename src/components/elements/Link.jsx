@@ -4,7 +4,6 @@ import { device } from '../../globalStyles';
 const StyledLink = styled.a`
   display: block;
   padding: 16px;
-  background-color: rgba(255, 255, 255, 0.95);
   color: var(--purple-3);
   text-align: center;
   font-size: 0.75rem;

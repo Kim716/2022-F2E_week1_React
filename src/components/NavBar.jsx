@@ -60,6 +60,8 @@ const StyledNav = styled.nav`
     position: absolute;
     top: 100%;
     left: 0;
+    background: rgba(255, 255, 255, 0.95);
+    padding-bottom: 30px;
 
     li {
       list-style: none;

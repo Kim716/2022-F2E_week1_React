@@ -4,6 +4,7 @@ import { device } from '../globalStyles';
 const StyledDiv = styled.div`
   width: 100%;
   padding: 0 8px;
+  background-color: #fff;
 
   .border {
     border: 1px solid var(--pink-2);

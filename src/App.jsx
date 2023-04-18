@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Container from './components/Container';
 import NavBar from './components/NavBar';
 import { GlobalStyles, device } from './globalStyles';
+import Part1 from './components/Part1';
 
 const StyledDiv = styled.div`
   position: relative;
@@ -32,7 +33,9 @@ function App() {
       <GlobalStyles />
       <StyledDiv>
         <NavBar />
-        <Container className="page">123</Container>
+        <Container className="page">
+          <Part1 />
+        </Container>
       </StyledDiv>
     </>
   );
