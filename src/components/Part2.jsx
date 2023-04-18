@@ -12,12 +12,6 @@ const StyledDiv = styled.div`
   height: 100%;
   padding: 40px 16px;
 
-  h2 {
-    font-size: 1.2rem;
-    font-weight: 400;
-    text-align: center;
-  }
-
   .question {
     background: #fff;
     width: 100%;
@@ -51,10 +45,6 @@ const StyledDiv = styled.div`
   @media screen and (${device.sm}) {
     padding: 40px 24px;
 
-    h2 {
-      font-size: 1.25rem;
-    }
-
     img {
       height: 20%;
     }
@@ -79,10 +69,6 @@ const StyledDiv = styled.div`
   @media screen and (${device.md}) {
     padding: 40px 32px;
 
-    h2 {
-      font-size: 1.5rem;
-    }
-
     .q1-genie {
       top: 11.3%;
     }
@@ -98,10 +84,6 @@ const StyledDiv = styled.div`
 
   @media screen and (${device.lg}) {
     padding: 80px 220px;
-
-    h2 {
-      font-size: 2rem;
-    }
 
     img {
       left: 20%;

@@ -1,5 +1,21 @@
 import { createGlobalStyle } from 'styled-components';
 
+const breakpoint = {
+  xs: '320px',
+  sm: '576px',
+  md: '768px',
+  ipad: '1024px',
+  lg: '1420px',
+};
+
+export const device = {
+  xs: `min-width: ${breakpoint.xs}`,
+  sm: `min-width: ${breakpoint.sm}`,
+  md: `min-width: ${breakpoint.md}`,
+  ipad: `min-width: ${breakpoint.ipad}`,
+  lg: `min-width: ${breakpoint.lg}`,
+};
+
 export const GlobalStyles = createGlobalStyle`
   // css reset
   *, *::before, *::after {
@@ -42,20 +58,34 @@ export const GlobalStyles = createGlobalStyle`
     --pink-2: #E335FF;
     font-size: 16px;
   }
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  @media screen and (${device.sm}) {
+    h2 {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media screen and (${device.md}) {
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media screen and (${device.ipad}) {
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+  @media screen and (${device.lg}) {
+    h2 {
+      font-size: 2rem;
+    }
+  }
 `;
-
-const breakpoint = {
-  xs: '320px',
-  sm: '576px',
-  md: '768px',
-  ipad: '1024px',
-  lg: '1420px',
-};
-
-export const device = {
-  xs: `min-width: ${breakpoint.xs}`,
-  sm: `min-width: ${breakpoint.sm}`,
-  md: `min-width: ${breakpoint.md}`,
-  ipad: `min-width: ${breakpoint.ipad}`,
-  lg: `min-width: ${breakpoint.lg}`,
-};
