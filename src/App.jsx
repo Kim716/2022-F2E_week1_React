@@ -1,8 +1,19 @@
 import styled from 'styled-components';
-import Container from './components/Container';
-import NavBar from './components/NavBar';
 import { GlobalStyles, device } from './globalStyles';
-import Part1 from './components/Part1';
+import {
+  NavBar,
+  Part1,
+  Part2,
+  Part3,
+  Part4,
+  Part5,
+  Part6,
+  Part7,
+  Part8,
+  Part9,
+  Footer,
+  Container,
+} from './components';
 
 const StyledDiv = styled.div`
   position: relative;
@@ -35,7 +46,16 @@ function App() {
         <NavBar />
         <Container className="page">
           <Part1 />
+          <Part2 />
+          <Part3 />
+          <Part4 />
+          <Part5 />
+          <Part6 />
+          <Part7 />
+          <Part8 />
+          <Part9 />
         </Container>
+        <Footer />
       </StyledDiv>
     </>
   );
