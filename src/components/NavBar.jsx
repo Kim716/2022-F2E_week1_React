@@ -18,7 +18,7 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 8px;
+  padding: 8px;
 
   .links {
     width: 50%;
@@ -62,7 +62,6 @@ const StyledNav = styled.nav`
     left: 0;
 
     li {
-      border: 1px solid var(--pink-2);
       list-style: none;
 
       ul {
