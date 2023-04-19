@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../globalStyles';
 
 import background3 from '../assets/background3.png';
 import genie1 from '../assets/info_genie1.png';
@@ -24,7 +25,7 @@ const StyleDiv = styled.div`
 
     img {
       position: relative;
-      width: 30%;
+      width: 25%;
       max-width: 105px;
     }
   }
@@ -32,6 +33,7 @@ const StyleDiv = styled.div`
   .info {
     width: 100%;
     padding: 16px 24px;
+    background-color: #fff;
     border: 1px solid var(--pink-2);
     border-radius: 20px;
   }
@@ -39,6 +41,7 @@ const StyleDiv = styled.div`
   .info-content {
     margin-top: 16px;
     width: 100%;
+    padding: 0 16px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -64,6 +67,89 @@ const StyleDiv = styled.div`
   .genie2 {
     left: 50%;
   }
+
+  @media screen and (${device.sm}) {
+    h3 {
+      margin: 16px 0 40px;
+      font-size: 1rem;
+    }
+
+    .info {
+      padding: 32px;
+    }
+
+    .info-title {
+      font-size: 1.25rem;
+    }
+
+    .info-content {
+      margin-top: 24px;
+      padding: 0 24px;
+    }
+
+    .purple {
+      display: inline;
+    }
+  }
+
+  @media screen and (${device.md}) {
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    .infos-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-container {
+      max-width: 520px;
+    }
+
+    .info {
+      padding: 40px 32px;
+    }
+
+    .info-title {
+      font-size: 1.5rem;
+    }
+
+    .info-content {
+      padding: 0 32px;
+      font-size: 1.25rem;
+    }
+
+    .genie1 {
+      margin: 32px 0;
+    }
+
+    .info2-container {
+      align-self: end;
+    }
+
+    .smaller {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (${device.ipad}) {
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media screen and (${device.lg}) {
+    .infos-container {
+      max-width: 1250px;
+      margin: 0 auto;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .info2-container {
+      align-self: start;
+    }
+  }
 `;
 
 function Part6() {
@@ -88,7 +174,7 @@ function Part6() {
           </div>
           <img src={genie1} alt="yellow and blue genies" className="genie1" />
         </div>
-        <div className="info-container">
+        <div className="info-container info2-container">
           <div className="info">
             <h4 className="info-title">獎項</h4>
             <ul className="info-content">
@@ -98,14 +184,14 @@ function Part6() {
               </li>
               <li>
                 個人企業獎 共六位
-                <span className="purple">NTD 3,000/位</span>
+                <span className="purple"> NTD 3,000/位</span>
                 <span className="smaller">
                   每週主題各兩位，設計一位、前端一位
                 </span>
               </li>
               <li>
                 團體企業獎 共三組
-                <span className="purple">NTD 10,000/組</span>
+                <span className="purple"> NTD 10,000/組</span>
                 <span className="smaller">每週主題各一組</span>
               </li>
               <li>以上皆提供完賽數位獎狀</li>

@@ -4,7 +4,8 @@ import { device } from '../globalStyles';
 
 import Button from './elements/Button';
 import Link from './elements/Link';
-import { ReactComponent as Logo } from '../assets/logo.svg';
+// import { ReactComponent as Logo } from '../assets/logo.svg';
+import logo from '../assets/logo.png';
 import { ReactComponent as Menu } from '../assets/menu.svg';
 import Container from './Container';
 
@@ -136,7 +137,8 @@ function NavBar() {
     <StyledNav>
       <div className="nav-bar">
         <div className="links">
-          <Logo className="logo" />
+          {/* <Logo className="logo" /> */}
+          <img src={logo} alt="logo" className="logo" />
           <Link href="https://2022.thef2e.com/news">關卡資訊</Link>
           <Link href="https://2022.thef2e.com/works">作品列表</Link>
           <Link href="https://hackmd.io/ofJD4K7iSI65V19zxC7d0w" target="_blank">
