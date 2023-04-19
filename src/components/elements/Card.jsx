@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../globalStyles';
 
 import Button from './Button';
 
@@ -33,7 +34,7 @@ const StyledDiv = styled.div`
     }};
     width: 100%;
     height: 100%;
-    display: flex; //!!!
+    display: none; //!!!
     justify-content: center;
     align-items: center;
   }
@@ -66,6 +67,12 @@ const StyledDiv = styled.div`
     .footer {
       margin: 16px 0;
       text-align: center;
+    }
+  }
+
+  @media screen and (${device.sm}) {
+    .title {
+      font-size: 1.25rem;
     }
   }
 `;
@@ -111,6 +118,10 @@ const StyledSpan = styled.span`
   padding: 8px 20px;
   color: ${(props) => props.week === 3 && props.filled && '#FFF'};
   font-size: 0.5rem;
+
+  @media screen and (${device.sm}) {
+    font-size: 0.875rem;
+  }
 `;
 
 function Card({ imgSrc, week, topic, title, sponsor }) {

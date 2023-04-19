@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../globalStyles';
 import Card from './elements/Card';
 
 import card1 from '../assets/card1.png';
@@ -22,6 +23,29 @@ const StyledDiv = styled.div`
     display: flex;
     flex-direction: column;
     gap: 40px;
+  }
+
+  @media screen and (${device.sm}) {
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media screen and (${device.ipad}) {
+    padding: 40px;
+
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media screen and (${device.lg}) {
+    padding: 88px 100px;
+
+    .cards {
+      flex-direction: row;
+      gap: 16px;
+    }
   }
 `;
 

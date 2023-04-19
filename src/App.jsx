@@ -18,6 +18,8 @@ import {
 const StyledDiv = styled.div`
   position: relative;
   width: 100vw;
+  max-width: 1500px;
+  margin: 0 auto;
 
   .page {
     width: 100%;

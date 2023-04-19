@@ -15,10 +15,16 @@ const StyledNav = styled.nav`
   right: 0;
   z-index: 10;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 8px;
+
+  .nav-bar {
+    max-width: 1500px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   .links {
     width: 50%;
@@ -128,46 +134,48 @@ function NavBar() {
 
   return (
     <StyledNav>
-      <div className="links">
-        <Logo className="logo" />
-        <Link href="https://2022.thef2e.com/news">關卡資訊</Link>
-        <Link href="https://2022.thef2e.com/works">作品列表</Link>
-        <Link href="https://hackmd.io/ofJD4K7iSI65V19zxC7d0w" target="_blank">
-          攻略資源
-        </Link>
-        <Link href="https://2022.thef2e.com/jobs">求職專區</Link>
+      <div className="nav-bar">
+        <div className="links">
+          <Logo className="logo" />
+          <Link href="https://2022.thef2e.com/news">關卡資訊</Link>
+          <Link href="https://2022.thef2e.com/works">作品列表</Link>
+          <Link href="https://hackmd.io/ofJD4K7iSI65V19zxC7d0w" target="_blank">
+            攻略資源
+          </Link>
+          <Link href="https://2022.thef2e.com/jobs">求職專區</Link>
+        </div>
+        <div className="button-bar">
+          <Button>註冊報名</Button>
+          <Menu className="menu" onClick={handleMenuClick} />
+          <Button>登入</Button>
+        </div>
+        {isMenuShow && (
+          <Container className="menu-list">
+            <li>
+              <ul>
+                <Link href="https://2022.thef2e.com/news">關卡資訊</Link>
+              </ul>
+              <ul>
+                <Link href="https://2022.thef2e.com/works">作品列表</Link>
+              </ul>
+              <ul>
+                <Link
+                  href="https://hackmd.io/ofJD4K7iSI65V19zxC7d0w"
+                  target="_blank"
+                >
+                  攻略資源
+                </Link>
+              </ul>
+              <ul>
+                <Link href="https://2022.thef2e.com/jobs">求職專區</Link>
+              </ul>
+              <ul>
+                <Button>登入</Button>
+              </ul>
+            </li>
+          </Container>
+        )}
       </div>
-      <div className="button-bar">
-        <Button>註冊報名</Button>
-        <Menu className="menu" onClick={handleMenuClick} />
-        <Button>登入</Button>
-      </div>
-      {isMenuShow && (
-        <Container className="menu-list">
-          <li>
-            <ul>
-              <Link href="https://2022.thef2e.com/news">關卡資訊</Link>
-            </ul>
-            <ul>
-              <Link href="https://2022.thef2e.com/works">作品列表</Link>
-            </ul>
-            <ul>
-              <Link
-                href="https://hackmd.io/ofJD4K7iSI65V19zxC7d0w"
-                target="_blank"
-              >
-                攻略資源
-              </Link>
-            </ul>
-            <ul>
-              <Link href="https://2022.thef2e.com/jobs">求職專區</Link>
-            </ul>
-            <ul>
-              <Button>登入</Button>
-            </ul>
-          </li>
-        </Container>
-      )}
     </StyledNav>
   );
 }
