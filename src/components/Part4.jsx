@@ -7,7 +7,6 @@ import card2 from '../assets/card2.png';
 import card3 from '../assets/card3.png';
 
 const StyledDiv = styled.div`
-  padding: 40px 16px;
   width: 100%;
 
   h3 {
@@ -32,15 +31,15 @@ const StyledDiv = styled.div`
   }
 
   @media screen and (${device.ipad}) {
-    padding: 40px;
-
     h3 {
       font-size: 1.5rem;
     }
   }
 
   @media screen and (${device.lg}) {
-    padding: 88px 100px;
+    h3 {
+      margin: 8px 0 48px;
+    }
 
     .cards {
       flex-direction: row;
@@ -51,7 +50,7 @@ const StyledDiv = styled.div`
 
 function Part4() {
   return (
-    <StyledDiv>
+    <StyledDiv className="part-container">
       <h2>年度最強合作，三大主題來襲</h2>
       <h3>各路廠商強強聯手，共同設計出接地氣的網頁互動挑戰關卡</h3>
       <div className="cards">

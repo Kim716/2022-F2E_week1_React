@@ -59,6 +59,10 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 16px;
   }
 
+  .part-container {
+    padding: 40px 16px;
+  }
+
   h2 {
     font-size: 1.2rem;
     font-weight: 400;
@@ -66,24 +70,40 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   @media screen and (${device.sm}) {
+    .part-container {
+      padding: 40px 24px;
+    }
+
     h2 {
       font-size: 1.25rem;
     }
   }
 
   @media screen and (${device.md}) {
+    .part-container {
+      padding: 40px 32px;
+    }
+
     h2 {
       font-size: 1.5rem;
     }
   }
 
   @media screen and (${device.ipad}) {
+    .part-container {
+      padding: 40px;
+    }
+
     h2 {
       font-size: 2rem;
     }
   }
 
   @media screen and (${device.lg}) {
+    .part-container {
+      padding: 88px 100px;
+    }
+
     h2 {
       font-size: 2rem;
     }

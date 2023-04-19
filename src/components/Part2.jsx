@@ -10,15 +10,15 @@ const StyledDiv = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 40px 16px;
 
   .question {
     background: #fff;
     width: 100%;
+    max-width: 900px;
     border: 1px solid var(--pink-2);
     border-radius: 10px;
     padding: 10px 0;
-    margin-top: 36px;
+    margin: 36px auto 0;
 
     font-size: 0.75rem;
     text-align: center;
@@ -43,8 +43,6 @@ const StyledDiv = styled.div`
   }
 
   @media screen and (${device.sm}) {
-    padding: 40px 24px;
-
     img {
       height: 20%;
     }
@@ -67,8 +65,6 @@ const StyledDiv = styled.div`
   }
 
   @media screen and (${device.md}) {
-    padding: 40px 32px;
-
     .q1-genie {
       top: 11.3%;
     }
@@ -82,9 +78,21 @@ const StyledDiv = styled.div`
     }
   }
 
-  @media screen and (${device.lg}) {
-    padding: 80px 220px;
+  @media screen and (${device.ipad}) {
+    .q1-genie {
+      top: 14%;
+    }
 
+    .q2-genie {
+      top: 35.8%;
+    }
+
+    .q3-genie {
+      top: 57.5%;
+    }
+  }
+
+  @media screen and (${device.lg}) {
     img {
       left: 20%;
     }
@@ -95,7 +103,7 @@ const StyledDiv = styled.div`
     }
 
     .q1-genie {
-      top: 15%;
+      top: 15.5%;
     }
 
     .q2-genie {
@@ -110,7 +118,7 @@ const StyledDiv = styled.div`
 
 function Part2() {
   return (
-    <StyledDiv>
+    <StyledDiv className="part-container">
       <h2>你是否也遇到以下問題？</h2>
       <div className="question">
         <span className="page-2-q1">羨慕別人的酷酷網頁動畫？</span>

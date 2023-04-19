@@ -9,7 +9,6 @@ import frontEndGenie from '../assets/fe.png';
 const StyledDiv = styled.div`
   width: 100%;
   height: 100%;
-  padding: 16px;
 
   .anime-area {
     position: relative;
@@ -63,8 +62,6 @@ const StyledDiv = styled.div`
   }
 
   @media screen and (${device.sm}) {
-    padding: 24px;
-
     .anime-area {
       margin-top: 24px;
 
@@ -75,8 +72,6 @@ const StyledDiv = styled.div`
   }
 
   @media screen and (${device.md}) {
-    padding: 32px;
-
     .anime-area {
       margin-top: 32px;
 
@@ -87,8 +82,6 @@ const StyledDiv = styled.div`
   }
 
   @media screen and (${device.ipad}) {
-    padding: 40px;
-
     .anime-area {
       margin-top: 40px;
 
@@ -99,8 +92,6 @@ const StyledDiv = styled.div`
   }
 
   @media screen and (${device.lg}) {
-    padding: 48px 110px;
-
     .anime-area {
       margin-top: 48px;
 
@@ -113,7 +104,7 @@ const StyledDiv = styled.div`
 
 function Part3() {
   return (
-    <StyledDiv>
+    <StyledDiv className="part-container">
       <h2>設計師與工程師進行攜手合作</h2>
       <div className="anime-area">
         <img src={BackgroundMd} alt="background" className="background2_md" />
