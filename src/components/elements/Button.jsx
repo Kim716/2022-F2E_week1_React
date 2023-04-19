@@ -19,28 +19,39 @@ const StyledButton = styled.button`
     position: absolute;
     top: 2px;
     left: 2px;
-    z-index: -1;
 
-    padding: 8px 16px;
-    color: transparent;
-    border: 1px solid var(--pink-2);
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid var(--pink-2);
+    border-bottom: 1px solid var(--pink-2);
+    pointer-events: none;
   }
 
   @media screen and (${device.sm}) {
     font-size: 0.875rem;
     padding: 12px 32px;
+
+    div {
+      font-size: 0.875rem;
+      padding: 12px 32px;
+    }
   }
 
   @media screen and (${device.md}) {
     font-size: 1.25rem;
     padding: 16px 40px;
+
+    div {
+      font-size: 1.25rem;
+      padding: 16px 40px;
+    }
   }
 `;
 
 function Button({ children, outline }) {
   return (
     <StyledButton outline={outline}>
-      {outline && <div>{children}</div>}
+      {outline && <div />}
       {children}
     </StyledButton>
   );

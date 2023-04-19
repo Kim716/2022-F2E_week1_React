@@ -17,8 +17,10 @@ import {
 
 const StyledDiv = styled.div`
   position: relative;
+  width: 100vw;
 
   .page {
+    width: 100%;
     padding-top: 88px;
   }
 

@@ -33,7 +33,7 @@ const StyledLink = styled.a`
 `;
 
 function Link({ children }) {
-  return <StyledLink>{children}</StyledLink>;
+  return <StyledLink rel="noreferrer noopener">{children}</StyledLink>;
 }
 
 export default Link;
