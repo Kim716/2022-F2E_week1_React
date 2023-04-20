@@ -70,6 +70,12 @@ const StyledDiv = styled.div`
   @media screen and (${device.md}) {
     .content {
       padding-bottom: 50px;
+    }
+  }
+
+  @media screen and (${device.ipad}) {
+    .content {
+      height: 80%;
 
       h3 {
         font-size: 2.25rem;
@@ -79,12 +85,6 @@ const StyledDiv = styled.div`
         font-size: 1.75rem;
         margin-bottom: 40px;
       }
-    }
-  }
-
-  @media screen and (${device.ipad}) {
-    .content {
-      height: 80%;
     }
   }
 

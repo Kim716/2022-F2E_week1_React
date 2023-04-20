@@ -9,7 +9,7 @@ const StyledDiv = styled.div`
 
   .info-container {
     max-width: 1024px;
-    margin-top: 16px;
+    margin: 16px auto 0;
   }
 
   .tabs {
