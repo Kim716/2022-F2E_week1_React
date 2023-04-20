@@ -7,7 +7,6 @@ import Part5 from './Part5';
 import Part6 from './Part6';
 import Part7 from './Part7';
 import Part8 from './Part8';
-import Part9 from './Part9';
 import Footer from './Footer';
 import Container from './Container';
 
@@ -21,7 +20,6 @@ export {
   Part6,
   Part7,
   Part8,
-  Part9,
   Footer,
   Container,
 };

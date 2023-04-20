@@ -10,7 +10,6 @@ import {
   Part6,
   Part7,
   Part8,
-  Part9,
   Footer,
   Container,
 } from './components';
@@ -57,7 +56,6 @@ function App() {
           <Part6 />
           <Part7 />
           <Part8 />
-          <Part9 />
         </Container>
         <Footer />
       </StyledDiv>
