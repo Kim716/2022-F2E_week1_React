@@ -10,8 +10,8 @@ const StyledDiv = styled.div`
 
   .sponsors {
     margin: 16px auto 0;
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 8px;
   }
 

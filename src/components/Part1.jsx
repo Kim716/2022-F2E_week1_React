@@ -39,10 +39,15 @@ const StyledDiv = styled.div`
     width: 30%;
   }
 
+  @media screen and (min-width: 375px) {
+    h1 {
+      left: 32%;
+    }
+  }
+
   @media screen and (${device.sm}) {
     h1 {
       top: 68.5%;
-      left: 32%;
 
       font-size: 1.25rem;
     }
