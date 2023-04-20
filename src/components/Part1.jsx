@@ -1,9 +1,12 @@
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { device } from '../globalStyles';
 
-import BackgroundLg from '../assets/background1.png';
-import BackgroundMd from '../assets/background1_md.png';
-import Genie from '../assets/genie.png';
+import backgroundLgSrc from '../assets/background1.png';
+import backgroundMdSrc from '../assets/background1_md.png';
+import genieSrc from '../assets/genie.png';
 
 const StyledDiv = styled.div`
   position: relative;
@@ -35,8 +38,9 @@ const StyledDiv = styled.div`
   .genie {
     position: absolute;
     top: 30%;
+    left: 0;
 
-    width: 30%;
+    width: 25%;
   }
 
   @media screen and (min-width: 375px) {
@@ -93,13 +97,49 @@ const StyledDiv = styled.div`
   }
 `;
 
+gsap.registerPlugin(ScrollTrigger);
+
 function Part1() {
+  const genie = useRef();
+
+  useEffect(() => {
+    const genieEl = genie.current;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: genieEl,
+        markers: true,
+        start: 'top 30%',
+        end: 'top 10%',
+        scrub: true,
+      },
+    });
+
+    if (window.innerWidth >= 1420) {
+      tl.to(genieEl, {
+        top: '40%',
+      }).to(genieEl, {
+        left: '13%',
+      });
+    } else {
+      tl.to(genieEl, {
+        top: '40%',
+      }).to(genieEl, {
+        left: '30%',
+      });
+    }
+
+    return () => tl.revert();
+  }, []);
+  // !!! 正常來說使用者應該不會再使用網頁時隨意拉動螢幕寬度，但在開發時會，如果沒有讓 useEffect 隨寬度拉動而調整，會導致被指定動畫的元素 css 被卡住，或神奇的狀況發生 ex. navbar 沒有隨著調整大小...
+  //  }, [window.innerWidth]);
+
   return (
     <StyledDiv>
-      <img src={BackgroundMd} alt="background" className="background1_md" />
-      <img src={BackgroundLg} alt="background" className="background1_lg" />
+      <img src={backgroundMdSrc} alt="background" className="background1_md" />
+      <img src={backgroundLgSrc} alt="background" className="background1_lg" />
       <h1>The F2E 4th 互動式網頁設計</h1>
-      <img src={Genie} alt="genie" className="genie" />
+      <img src={genieSrc} alt="genie" className="genie" ref={genie} />
     </StyledDiv>
   );
 }
