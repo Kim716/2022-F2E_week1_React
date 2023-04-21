@@ -133,7 +133,7 @@ function Part1() {
     return () => tl.revert();
   });
   // !!! 正常來說使用者應該不會再使用網頁時隨意拉動螢幕寬度，但在開發時會，如果沒有讓 useEffect 隨寬度拉動而調整，會導致被指定動畫的元素 css 被卡住，或神奇的狀況發生 ex. navbar 沒有隨著調整大小...
-  //  }, [window.innerWidth]);
+  // }, [window.innerWidth]);
 
   return (
     <StyledDiv>
