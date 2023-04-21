@@ -599,6 +599,7 @@ Error generating stack: `+o.message+`
 `;pr.registerPlugin(ce,Ml);function ox(){const t=Ie.useRef();return Ie.useEffect(()=>{const e=pr.context(()=>{pr.timeline({scrollTrigger:{trigger:".cursor",toggleActions:"play pause resume reset"}}).fromTo(".cursor",{opacity:0},{opacity:1,duration:1,repeat:-1}),pr.timeline({scrollTrigger:{trigger:".q1",start:"top 80%",end:"top 30%",toggleActions:"play pause resume reset"}}).to(".q1",{text:"羨慕別人的酷酷網頁動畫？",duration:1.5}).to(".q2",{text:"滿足不了同事的許願？",duration:1.5}).to(".q3",{text:"動畫技能樹太雜無從下手？",duration:1.5})},t);return()=>e.revert()}),le(ix,{className:"part-container",ref:t,children:[R("h2",{children:"你是否也遇到以下問題？"}),le("div",{className:"question",children:[R("span",{className:"q1"}),R("span",{className:"cursor",children:"_"})]}),le("div",{className:"question",children:[R("span",{className:"q2"}),R("span",{className:"cursor",children:"_"})]}),le("div",{className:"question",children:[R("span",{className:"q3"}),R("span",{className:"cursor",children:"_"})]}),R("img",{src:tx,alt:"q1Genie",className:"q1-genie"}),R("img",{src:nx,alt:"q2Genie",className:"q2-genie"}),R("img",{src:rx,alt:"q3Genie",className:"q3-genie"})]})}const ux="/2022-F2E_week1_React/assets/background2-3c9b94f3.png",lx="/2022-F2E_week1_React/assets/background2_md-495c687d.png",sx="/2022-F2E_week1_React/assets/designer-a3eae594.png",ax="/2022-F2E_week1_React/assets/fe-882dd9f2.png",cx=zt.div`
   width: 100%;
   height: 100%;
+  overflow: hidden;
 
   .anime-area {
     position: relative;
