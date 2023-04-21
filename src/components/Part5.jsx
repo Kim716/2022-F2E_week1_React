@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import { device } from '../globalStyles';
 
@@ -18,6 +19,8 @@ const StyledDiv = styled.div`
     .tab {
       flex-grow: 1;
       padding: 8px 0;
+      border: none;
+      background-color: var(--yellow-1);
       font-size: 0.875rem;
       text-align: center;
       cursor: pointer;
@@ -59,16 +62,38 @@ const StyledDiv = styled.div`
 `;
 
 function Part5() {
+  const [isInfo1Show, setIsInfo1Show] = useState(true);
+
   return (
     <StyledDiv className="part-container">
       <h2>活動說明</h2>
       <div className="info-container">
         <div className="tabs">
-          <div className="tab show">報名時間</div>
-          <div className="tab">登陸作品</div>
+          <button
+            type="button"
+            className={`tab ${isInfo1Show && 'show'}`}
+            onClick={() => setIsInfo1Show(true)}
+          >
+            報名時間
+          </button>
+          <button
+            type="button"
+            className={`tab ${isInfo1Show || 'show'}`}
+            onClick={() => setIsInfo1Show(false)}
+          >
+            登陸作品
+          </button>
         </div>
-        <img src={info1} alt="報名時間說明" className="show" />
-        <img src={info2} alt="登陸作品說明" className="" />
+        <img
+          src={info1}
+          alt="報名時間說明"
+          className={`${isInfo1Show && 'show'}`}
+        />
+        <img
+          src={info2}
+          alt="登陸作品說明"
+          className={`${isInfo1Show || 'show'}`}
+        />
       </div>
     </StyledDiv>
   );
