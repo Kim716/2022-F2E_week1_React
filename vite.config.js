@@ -6,6 +6,7 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), svgr()],
+  base: '/2022-F2E_week1_React/',
   /*
   optimizeDeps: {
     exclude: ['sweetalert2'],
