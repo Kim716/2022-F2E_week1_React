@@ -160,10 +160,7 @@ function Card({ imgSrc, week, topic, title, sponsor }) {
 
       {/* <!-- 背面 --> */}
       <div className="card-side card-back">
-        <Button
-          outline
-          // href="https://2022.thef2e.com/news/week1"
-        >
+        <Button outline href={`https://2022.thef2e.com/news/week${week}`}>
           查看關卡細節
         </Button>
       </div>

@@ -111,6 +111,11 @@ const StyledDiv = styled.div`
 `;
 
 function Part7() {
+  const handleRegisterClick = () => {
+    // eslint-disable-next-line no-alert
+    alert('已經過了報名期限');
+  };
+
   return (
     <StyledDiv>
       <img src={background4Src} alt="background" className="background" />
@@ -124,7 +129,7 @@ function Part7() {
         <img src={star} alt="星星" className="star" />
         <h3>你要的修煉都在 The F2E</h3>
         <p>三週精實修煉，一次提升實力</p>
-        <Button>我要報名</Button>
+        <Button onClick={handleRegisterClick}>我要報名</Button>
       </div>
     </StyledDiv>
   );

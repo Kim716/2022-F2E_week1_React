@@ -8,7 +8,9 @@ const StyledButton = styled.a`
   border: none;
   border-radius: ${(props) => (props.outline ? '0' : '999px')};
   background-color: ${(props) => (props.outline ? '#FFF' : 'var(--yellow-3)')};
+  color: black;
   font-size: 0.75rem;
+  text-decoration: none;
   cursor: pointer;
 
   &:hover {
