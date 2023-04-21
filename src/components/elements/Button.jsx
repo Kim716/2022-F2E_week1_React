@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { device } from '../../globalStyles';
 
-const StyledButton = styled.button`
+const StyledButton = styled.a`
+  display: inline-block;
   position: relative;
   padding: 8px 16px;
   border: none;
@@ -48,9 +49,15 @@ const StyledButton = styled.button`
   }
 `;
 
-function Button({ children, outline }) {
+function Button({ children, outline, href, ...rest }) {
   return (
-    <StyledButton outline={outline}>
+    <StyledButton
+      outline={outline}
+      href={href}
+      target="_blank"
+      rel="noreferrer noopener"
+      {...rest}
+    >
       {outline && <div />}
       {children}
     </StyledButton>

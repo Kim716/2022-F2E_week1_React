@@ -7,6 +7,7 @@ const StyledLink = styled.a`
   color: var(--purple-3);
   text-align: center;
   font-size: 0.75rem;
+  text-decoration: none;
   cursor: pointer;
 
   &:hover {
@@ -32,8 +33,12 @@ const StyledLink = styled.a`
   }
 `;
 
-function Link({ children }) {
-  return <StyledLink rel="noreferrer noopener">{children}</StyledLink>;
+function Link({ children, href }) {
+  return (
+    <StyledLink href={href} target="_blank" rel="noreferrer noopener">
+      {children}
+    </StyledLink>
+  );
 }
 
 export default Link;

@@ -4,7 +4,6 @@ import { device } from '../globalStyles';
 
 import Button from './elements/Button';
 import Link from './elements/Link';
-// import { ReactComponent as Logo } from '../assets/logo.svg';
 import logo from '../assets/logo.png';
 import { ReactComponent as Menu } from '../assets/menu.svg';
 import Container from './Container';
@@ -44,11 +43,11 @@ const StyledNav = styled.nav`
     display: flex;
     align-items: center;
 
-    button:nth-of-type(1) {
+    a:nth-of-type(1) {
       margin-right: 16px;
     }
 
-    button:nth-of-type(2) {
+    a:nth-of-type(2) {
       display: none;
     }
   }
@@ -78,7 +77,7 @@ const StyledNav = styled.nav`
         width: 100%;
         text-align: center;
 
-        button {
+        a {
           margin: 16px 0;
         }
       }
@@ -119,7 +118,7 @@ const StyledNav = styled.nav`
     }
 
     .button-bar {
-      button:nth-of-type(2) {
+      a:nth-of-type(2) {
         display: block;
       }
     }
@@ -133,11 +132,15 @@ function NavBar() {
     setIsMenuShow(!isMenuShow);
   };
 
+  const handleRegisterClick = () => {
+    // eslint-disable-next-line no-alert
+    alert('已經過了報名期限');
+  };
+
   return (
     <StyledNav>
       <div className="nav-bar">
         <div className="links">
-          {/* <Logo className="logo" /> */}
           <img src={logo} alt="logo" className="logo" />
           <Link href="https://2022.thef2e.com/news">關卡資訊</Link>
           <Link href="https://2022.thef2e.com/works">作品列表</Link>
@@ -147,9 +150,9 @@ function NavBar() {
           <Link href="https://2022.thef2e.com/jobs">求職專區</Link>
         </div>
         <div className="button-bar">
-          <Button>註冊報名</Button>
+          <Button onClick={handleRegisterClick}>註冊報名</Button>
           <Menu className="menu" onClick={handleMenuClick} />
-          <Button>登入</Button>
+          <Button href="https://2022.thef2e.com/login">登入</Button>
         </div>
         {isMenuShow && (
           <Container className="menu-list">
@@ -172,7 +175,7 @@ function NavBar() {
                 <Link href="https://2022.thef2e.com/jobs">求職專區</Link>
               </ul>
               <ul>
-                <Button>登入</Button>
+                <Button href="https://2022.thef2e.com/login">登入</Button>
               </ul>
             </li>
           </Container>
