@@ -1,10 +1,13 @@
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styled from 'styled-components';
 import { device } from '../globalStyles';
 
-import BackgroundLg from '../assets/background2.png';
-import BackgroundMd from '../assets/background2_md.png';
-import designerGenie from '../assets/designer.png';
-import frontEndGenie from '../assets/fe.png';
+import backgroundLgSrc from '../assets/background2.png';
+import backgroundMdSrc from '../assets/background2_md.png';
+import designerGenieSrc from '../assets/designer.png';
+import frontEndGenieSrc from '../assets/fe.png';
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -102,16 +105,48 @@ const StyledDiv = styled.div`
   }
 `;
 
+gsap.registerPlugin(ScrollTrigger);
+
 function Part3() {
+  const part3 = useRef();
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.title',
+          start: 'top 70%',
+          end: 'top 40%',
+          scrub: true,
+        },
+      });
+
+      // 隨者視窗滑動 字體放大，兩側出現小精靈
+      tl.from('.title', { fontSize: '10px' })
+        .from('.designer', { left: '-50%' }, '<')
+        .from('.front-end', { left: '150%' }, '<');
+    }, part3);
+
+    return () => ctx.revert();
+  });
+
   return (
-    <StyledDiv className="part-container">
+    <StyledDiv className="part-container" ref={part3}>
       <h2>設計師與工程師進行攜手合作</h2>
       <div className="anime-area">
-        <img src={BackgroundMd} alt="background" className="background2_md" />
-        <img src={BackgroundLg} alt="background" className="background2_lg" />
-        <h3>互動式網頁設計</h3>
-        <img src={designerGenie} alt="designer" className="designer" />
-        <img src={frontEndGenie} alt="front-end" className="front-end" />
+        <img
+          src={backgroundMdSrc}
+          alt="background"
+          className="background2_md"
+        />
+        <img
+          src={backgroundLgSrc}
+          alt="background"
+          className="background2_lg"
+        />
+        <h3 className="title">互動式網頁設計</h3>
+        <img src={designerGenieSrc} alt="designer" className="designer" />
+        <img src={frontEndGenieSrc} alt="front-end" className="front-end" />
       </div>
     </StyledDiv>
   );
