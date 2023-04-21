@@ -1,20 +1,33 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { device } from '../globalStyles';
 
 import Button from './elements/Button';
 
-import background4 from '../assets/background4.png';
+import background4Src from '../assets/background4.png';
 import star from '../assets/star.png';
+
+const autoCarousel = keyframes`
+  to {
+    transform: translateX(-105%)
+  }
+`;
 
 const StyledDiv = styled.div`
   position: relative;
   min-height: 240px;
   height: 60vw;
+  overflow: hidden;
 
   .background {
     min-height: 240px;
     height: 100%;
-    object-fit: cover;
+    animation: ${autoCarousel} infinite 4s linear;
+  }
+
+  .background2 {
+    position: absolute;
+    top: 0;
+    left: 105%;
   }
 
   .content {
@@ -100,7 +113,12 @@ const StyledDiv = styled.div`
 function Part7() {
   return (
     <StyledDiv>
-      <img src={background4} alt="background" className="background" />
+      <img src={background4Src} alt="background" className="background" />
+      <img
+        src={background4Src}
+        alt="background"
+        className="background background2"
+      />
 
       <div className="content">
         <img src={star} alt="星星" className="star" />
