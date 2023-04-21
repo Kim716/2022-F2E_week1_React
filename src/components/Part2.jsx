@@ -1,9 +1,13 @@
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TextPlugin } from 'gsap/TextPlugin';
 import styled from 'styled-components';
 import { device } from '../globalStyles';
 
-import q1Genie from '../assets/q1.png';
-import q2Genie from '../assets/q2.png';
-import q3Genie from '../assets/q3.png';
+import q1GenieSrc from '../assets/q1.png';
+import q2GenieSrc from '../assets/q2.png';
+import q3GenieSrc from '../assets/q3.png';
 
 const StyledDiv = styled.div`
   background-color: var(--yellow-1);
@@ -116,25 +120,72 @@ const StyledDiv = styled.div`
   }
 `;
 
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
 function Part2() {
+  const part2 = useRef();
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // 游標出現在畫面就保持閃爍
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: '.cursor',
+            toggleActions: 'play pause resume reset',
+          },
+        })
+        .fromTo(
+          '.cursor',
+          { opacity: 0 },
+          { opacity: 1, duration: 1, repeat: -1 }
+        );
+
+      // 文字在同個時間軸上接續出現
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: '.q1',
+            start: 'top 80%',
+            end: 'top 30%',
+            toggleActions: 'play pause resume reset',
+          },
+        })
+        .to('.q1', {
+          text: '羨慕別人的酷酷網頁動畫？',
+          duration: 1.5,
+        })
+        .to('.q2', {
+          text: '滿足不了同事的許願？',
+          duration: 1.5,
+        })
+        .to('.q3', {
+          text: '動畫技能樹太雜無從下手？',
+          duration: 1.5,
+        });
+    }, part2);
+
+    return () => ctx.revert();
+  });
+
   return (
-    <StyledDiv className="part-container">
+    <StyledDiv className="part-container" ref={part2}>
       <h2>你是否也遇到以下問題？</h2>
       <div className="question">
-        <span className="page-2-q1">羨慕別人的酷酷網頁動畫？</span>
-        <span className="cursor1">_</span>
+        <span className="q1" />
+        <span className="cursor">_</span>
       </div>
       <div className="question">
-        <span className="page-2-q2">滿足不了同事的許願？</span>
-        <span className="cursor2">_</span>
+        <span className="q2" />
+        <span className="cursor">_</span>
       </div>
       <div className="question">
-        <span className="page-2-q3">動畫技能樹太雜無從下手？</span>
-        <span className="cursor3">_</span>
+        <span className="q3" />
+        <span className="cursor">_</span>
       </div>
-      <img src={q1Genie} alt="q1Genie" className="q1-genie" />
-      <img src={q2Genie} alt="q2Genie" className="q2-genie" />
-      <img src={q3Genie} alt="q3Genie" className="q3-genie" />
+      <img src={q1GenieSrc} alt="q1Genie" className="q1-genie" />
+      <img src={q2GenieSrc} alt="q2Genie" className="q2-genie" />
+      <img src={q3GenieSrc} alt="q3Genie" className="q3-genie" />
     </StyledDiv>
   );
 }

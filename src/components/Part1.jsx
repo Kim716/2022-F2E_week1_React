@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
-import styled from 'styled-components';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import styled from 'styled-components';
 import { device } from '../globalStyles';
 
 import backgroundLgSrc from '../assets/background1.png';
@@ -108,13 +108,13 @@ function Part1() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: genieEl,
-        markers: true,
         start: 'top 30%',
         end: 'top 10%',
         scrub: true,
       },
     });
 
+    // 因 RWD 需設計兩種相應動畫，才能讓精靈跑到對的位置
     if (window.innerWidth >= 1420) {
       tl.to(genieEl, {
         top: '40%',
@@ -129,8 +129,9 @@ function Part1() {
       });
     }
 
+    // clean up every render
     return () => tl.revert();
-  }, []);
+  });
   // !!! 正常來說使用者應該不會再使用網頁時隨意拉動螢幕寬度，但在開發時會，如果沒有讓 useEffect 隨寬度拉動而調整，會導致被指定動畫的元素 css 被卡住，或神奇的狀況發生 ex. navbar 沒有隨著調整大小...
   //  }, [window.innerWidth]);
 
