@@ -8,13 +8,18 @@ const StyledDiv = styled.div`
   width: 100%;
   max-width: 350px;
   margin: 0 auto;
-  border: 1px solid var(--pink-2);
-  border-radius: 20px;
 
-  .cardBack {
+  .card-side {
+    border-radius: 20px;
+    border: 1px solid var(--pink-2);
+    transition: all 0.8s ease;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .card-back {
     position: absolute;
     top: 0;
-    border-radius: inherit;
 
     background-color: ${(props) => {
       switch (props.week) {
@@ -34,13 +39,15 @@ const StyledDiv = styled.div`
     }};
     width: 100%;
     height: 100%;
-    display: none; //!!!
+    display: flex;
     justify-content: center;
     align-items: center;
+
+    // 翻轉動畫
+    transform: rotateY(-180deg);
   }
 
-  .cardFront {
-    border-radius: inherit;
+  .card-front {
     width: 100%;
     height: 100%;
 
@@ -68,6 +75,15 @@ const StyledDiv = styled.div`
       margin: 16px 0;
       text-align: center;
     }
+  }
+
+  // 翻轉動畫
+  &:hover .card-side.card-front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover .card-side.card-back {
+    transform: rotateY(0deg);
   }
 
   @media screen and (${device.sm}) {
@@ -127,18 +143,8 @@ const StyledSpan = styled.span`
 function Card({ imgSrc, week, topic, title, sponsor }) {
   return (
     <StyledDiv week={week}>
-      {/* <!-- 背面 --> */}
-      <div className="card-1 card-1-back cardBack">
-        <Button
-          outline
-          // href="https://2022.thef2e.com/news/week1"
-        >
-          查看關卡細節
-        </Button>
-      </div>
-
       {/* <!-- 正面 --> */}
-      <div className="card-1 card-1-front cardFront">
+      <div className="card-side card-front">
         <img src={imgSrc} alt="card img" />
         <div className="content">
           <div>
@@ -150,6 +156,16 @@ function Card({ imgSrc, week, topic, title, sponsor }) {
           <p className="title">{title}</p>
         </div>
         <p className="footer">贊助商：{sponsor}</p>
+      </div>
+
+      {/* <!-- 背面 --> */}
+      <div className="card-side card-back">
+        <Button
+          outline
+          // href="https://2022.thef2e.com/news/week1"
+        >
+          查看關卡細節
+        </Button>
       </div>
     </StyledDiv>
   );
