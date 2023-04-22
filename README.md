@@ -8,7 +8,7 @@
 ## 🌱 Introdution
 此專案為 2022 The F2E 4th 第一關「視差滾動互動式網站」的作品，使用設計師提供的設計稿，開發與使用者有高互動性的網頁。
 
-設有 RWD，可在桌機、平板、手機情境皆可瀏覽 (width: 1440px、1024px、768px、576px、320px)
+設有 RWD，在桌機、平板、手機情境皆可瀏覽 (width: 1440px、1024px、768px、576px、320px)
 
 ## 🛠 Develop environment & tools
 - node 16.20.0
