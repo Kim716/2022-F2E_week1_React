@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styled from 'styled-components';
 import { device } from '../globalStyles';
+import { useOnLoadImages } from '../hooks/useOnLoadImmages';
 
 import backgroundLgSrc from '../assets/background1.png';
 import backgroundMdSrc from '../assets/background1_md.png';
@@ -100,47 +101,52 @@ const StyledDiv = styled.div`
 gsap.registerPlugin(ScrollTrigger);
 
 function Part1() {
-  const genie = useRef();
+  const part1 = useRef();
+  const isImagesLoaded = useOnLoadImages(part1);
 
+  // eslint-disable-next-line consistent-return
   useEffect(() => {
-    const genieEl = genie.current;
+    // 只有圖片載入完成才上動畫
+    if (isImagesLoaded) {
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.genie',
+            start: 'top 30%',
+            end: 'top 10%',
+            scrub: true,
+          },
+        });
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: genieEl,
-        start: 'top 30%',
-        end: 'top 10%',
-        scrub: true,
-      },
-    });
+        // 因為 RWD 要設計兩種動畫
+        if (window.innerWidth >= 1420) {
+          tl.to('.genie', {
+            top: '40%',
+          }).to('.genie', {
+            left: '13%',
+          });
+        } else {
+          tl.to('.genie', {
+            top: '40%',
+          }).to('.genie', {
+            left: '30%',
+          });
+        }
+      }, part1);
 
-    // 因 RWD 需設計兩種相應動畫，才能讓精靈跑到對的位置
-    if (window.innerWidth >= 1420) {
-      tl.to(genieEl, {
-        top: '40%',
-      }).to(genieEl, {
-        left: '13%',
-      });
-    } else {
-      tl.to(genieEl, {
-        top: '40%',
-      }).to(genieEl, {
-        left: '30%',
-      });
+      // clean up every render
+      return () => ctx.revert();
     }
-
-    // clean up every render
-    return () => tl.revert();
-  });
+  }, [isImagesLoaded]);
   // !!! 正常來說使用者應該不會再使用網頁時隨意拉動螢幕寬度，但在開發時會，如果沒有讓 useEffect 隨寬度拉動而調整，會導致被指定動畫的元素 css 被卡住，或神奇的狀況發生 ex. navbar 沒有隨著調整大小...
   // }, [window.innerWidth]);
 
   return (
-    <StyledDiv>
+    <StyledDiv ref={part1}>
       <img src={backgroundMdSrc} alt="background" className="background1_md" />
       <img src={backgroundLgSrc} alt="background" className="background1_lg" />
       <h1>The F2E 4th 互動式網頁設計</h1>
-      <img src={genieSrc} alt="genie" className="genie" ref={genie} />
+      <img src={genieSrc} alt="genie" className="genie" />
     </StyledDiv>
   );
 }
