@@ -3,11 +3,12 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styled from 'styled-components';
 import { device } from '../globalStyles';
-import { useOnLoadImages } from '../hooks/useOnLoadImmages';
+import { useOnLoadImages } from '../hooks/useOnLoadImages';
 
 import backgroundLgSrc from '../assets/background1.png';
 import backgroundMdSrc from '../assets/background1_md.png';
 import genieSrc from '../assets/genie.png';
+import { useWindowDimensions } from '../hooks/useWindowDimensions';
 
 const StyledDiv = styled.div`
   position: relative;
@@ -103,6 +104,7 @@ gsap.registerPlugin(ScrollTrigger);
 function Part1() {
   const part1 = useRef();
   const isImagesLoaded = useOnLoadImages(part1);
+  const windowDimensions = useWindowDimensions();
 
   // eslint-disable-next-line consistent-return
   useEffect(() => {
@@ -119,7 +121,8 @@ function Part1() {
         });
 
         // 因為 RWD 要設計兩種動畫
-        if (window.innerWidth >= 1420) {
+        // if (viewportWidth >= 1420) {
+        if (windowDimensions.width >= 1420) {
           tl.to('.genie', {
             top: '40%',
           }).to('.genie', {
@@ -137,7 +140,7 @@ function Part1() {
       // clean up every render
       return () => ctx.revert();
     }
-  }, [isImagesLoaded]);
+  }, [isImagesLoaded, windowDimensions.width]);
   // !!! 正常來說使用者應該不會再使用網頁時隨意拉動螢幕寬度，但在開發時會，如果沒有讓 useEffect 隨寬度拉動而調整，會導致被指定動畫的元素 css 被卡住，或神奇的狀況發生 ex. navbar 沒有隨著調整大小...
   // }, [window.innerWidth]);
 

@@ -27,7 +27,7 @@ const StyledLink = styled.a`
     display: inline;
 
     &:hover {
-      background-color: #fff;
+      background-color: transparent;
       color: var(--pink-2);
     }
   }
